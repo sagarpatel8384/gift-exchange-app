@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: groups
+#
+#  id            :integer          not null, primary key
+#  name          :string
+#  description   :text
+#  exchange_date :datetime
+#  max_price     :integer
+#  admin_id      :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 require 'rails_helper'
 
 describe Group do 

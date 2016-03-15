@@ -6,7 +6,6 @@
 #  user_id     :integer
 #  group_id    :integer
 #  receiver_id :integer
-#  joined      :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

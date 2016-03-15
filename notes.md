@@ -29,6 +29,6 @@ id    |   user_id   |   group_id  |  receiver_id
 8     |   3         |   2         |                
 
 INVITES
-id    |   email                 |   group_id  |  joined
+id    |   email                 |   group_id  |  membership_status
 1     |   lharary@gmail.com     |   1         |   f
 2     |   spatel@gmail.com      |   1         |   f

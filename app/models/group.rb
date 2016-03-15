@@ -15,6 +15,7 @@
 class Group < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
+  has_many :invitations
   belongs_to :admin, class_name: :User, foreign_key: "admin_id"
   validates :name, :exchange_date, :max_price, :admin_id, presence: true
   validates :name, length: { in: 3..25 }
