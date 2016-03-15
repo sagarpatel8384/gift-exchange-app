@@ -1,0 +1,40 @@
+<h3>User Registration</h3>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div class="field">
+    <%= f.label :first_name, 'First Name' %><br/>
+    <%= f.text_field :first_name, placeholder: 'Jeff' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, 'Last Name' %><br/>
+    <%= f.text_field :last_name, placeholder: 'Katz' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br/>
+    <%= f.text_field :email, placeholder: 'jeff@example.com' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br/>
+    <%= f.password_field :password, placeholder: 'Password' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, 'Confirm Password' %><br/>
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
