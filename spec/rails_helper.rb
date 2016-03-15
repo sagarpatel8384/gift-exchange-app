@@ -26,5 +26,11 @@ RSpec.configure do |config|
     @work = Group.create(name: "work", description: "Work gift exchange for fall 2016 party!", exchange_date: "2016-12-14", max_price: 50, admin_id: @sagar.id)
     @sagar.groups << @flatiron
     @sagar.groups << @work
+    @invite_one = @flatiron.invitations.build(email: "example@example.com")
+    @invite_two = @flatiron.invitations.build(email: "test@example.com")
+    @invite_three = @flatiron.invitations.build(email: "test@example.com")
+    @invite_one.save
+    @invite_two.save
+    @invite_three.save
   end
 end

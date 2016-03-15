@@ -40,6 +40,10 @@ describe Group do
 
     it "has an admin with a first name" do
       expect(@flatiron.admin.first_name).to eq("Sagar")
-    end   
+    end  
+
+    it "has many invites"  do
+      expect(@flatiron.invitations.count).to eq(2)
+    end 
   end
 end
