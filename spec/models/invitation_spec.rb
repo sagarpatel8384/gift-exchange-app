@@ -16,8 +16,8 @@ describe Invitation do
       expect(@invite_one.group.class).to eq(Group)
     end
 
-#     it "validates uniqueness of email in a group"  do
-#       expect(@invite_three.errors.full_messages.first).to eq("An invite has already been sent to this email address")
-#     end
-#   end
+    it "validates uniqueness of email in a group"  do
+      expect(@invite_three.errors.full_messages.first).to eq("Email has already been taken")
+    end
+  end
 end
