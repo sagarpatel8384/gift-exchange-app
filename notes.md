@@ -1,0 +1,27 @@
+USERS
+--------------------
+id  |   first_name    |   last_name   |   email                 |   password_digest
+1   |   Justin        |   Curhan      |   jcurhan@gmail.com     |    *********
+2   |   Leon          |   Harary      |   lharary@gmail.com     |    ****
+3   |   Sagar         |   Patel       |   spatel@gmail.com      |    *********
+4   |   Jeff          |   Katz        |   jkatz@gmail.com       |    ********
+5   |   Ian           |   Candy       |   icandy@gmail.com      |    *******
+
+
+GROUPS
+--------------------
+id    |   name          |   description                         |    exchange_date   |   max_price   |   admin_id
+1     |   Flatiron      |   Junior Developer Gift Exchange      |    2016-12-15      |   50          |   4
+2     |   Secret Santa  |   Friends Secret Santa                |    2016-12-15      |   100         |   1
+
+MATCHES
+--------------------
+id    |   user_id   |   group_id    |   receiver_id
+1     |   1         |   1           |   
+2     |   2         |   1           |
+3     |   3         |   1           |
+4     |   4         |   1           |
+5     |   5         |   1           |
+6     |   1         |   2           |
+7     |   2         |   2           |
+8     |   3         |   2           |

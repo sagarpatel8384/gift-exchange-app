@@ -38,10 +38,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
-    better_errors (2.1.1)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-      rack (>= 0.9.0)
+    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.1.1.1)
@@ -55,8 +52,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    childprocess (0.5.9)
-      ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -79,6 +74,8 @@ GEM
     factory_girl_rails (4.6.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faker (1.6.3)
+      i18n (~> 0.5)
     ffi (1.9.10)
     formatador (0.2.5)
     globalid (0.3.6)
@@ -131,6 +128,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.3.0)
+      byebug (~> 8.0)
+      pry (~> 0.10)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -190,7 +190,6 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
-    rubyzip (1.2.0)
     sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -201,11 +200,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    selenium-webdriver (2.52.0)
-      childprocess (~> 0.5)
-      multi_json (~> 1.0)
-      rubyzip (~> 1.0)
-      websocket (~> 1.0)
     shellany (0.0.1)
     simplecov (0.11.2)
       docile (~> 1.1.0)
@@ -239,7 +233,6 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    websocket (1.2.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -247,26 +240,25 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors
+  bcrypt (~> 3.1.7)
   binding_of_caller
   bootstrap-sass (~> 3.1.1)
-  byebug
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails
+  faker
   google-analytics-rails
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
   pg
-  pry
+  pry-byebug
   rails (= 4.2.0)
   rails_12factor
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  selenium-webdriver
   simplecov
   spring
   sqlite3
