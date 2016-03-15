@@ -23,12 +23,13 @@ ActiveRecord::Schema.define(version: 20160315153722) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "matches", force: :cascade do |t|
+  create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "group_id"
     t.integer  "receiver_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "joined",      default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|
