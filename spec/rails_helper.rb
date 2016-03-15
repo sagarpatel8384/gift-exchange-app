@@ -21,7 +21,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   config.before(:each) do
-    @sagar = User.create(first_name: "Sagar", last_name: "Patel", email: "example@example.com", password_digest: "example")
+    @sagar = User.create(first_name: "Sagar", last_name: "Patel", email: "example@example.com", password: "example", password_confirmation: "example")
     @flatiron = Group.create(name: "Flatiron", description: "Flatiron gift exchange for fall 2016 graduation!", exchange_date: "2016-12-24", max_price: 40, admin_id: @sagar.id)
     @work = Group.create(name: "work", description: "Work gift exchange for fall 2016 party!", exchange_date: "2016-12-14", max_price: 50, admin_id: @sagar.id)
     @sagar.groups << @flatiron

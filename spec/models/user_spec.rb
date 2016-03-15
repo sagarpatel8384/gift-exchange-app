@@ -15,7 +15,7 @@ describe User do
     end
 
     it "has a password" do
-      expect(@sagar.password_digest).not_to be_nil
+      expect(@sagar.password).not_to be_nil
     end    
   end
 
