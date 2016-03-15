@@ -14,8 +14,8 @@
 class User < ActiveRecord::Base
   has_many :memberships
   has_many :groups, through: :memberships
-  # validates :first_name, :last_name, :email, :password_digest, presence: true
-  # validates :email, uniqueness: true, email: true
-  # validates :password, length: { minimum: 6 }
-  # validations in model or conditional validations in controller
+  has_secure_password
+  validates :first_name, :last_name, :email, presence: true
+  validates :email, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+  validates :password, length: { minimum: 6 }
 end

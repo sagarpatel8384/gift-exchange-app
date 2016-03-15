@@ -18,12 +18,17 @@ id    |   name          |   description                         |    exchange_da
 
 MEMBERSHIPS(USER_GROUPS)
 --------------------
-id    |   user_id   |   group_id  |  receiver_id   |  joined
-1     |   1         |   1         |                |    f
-2     |   2         |   1         |                |    f           
-3     |   3         |   1         |                |    f           
-4     |   4         |   1         |                |    f           
-5     |   5         |   1         |                |    f           
-6     |   1         |   2         |                |    f           
-7     |   2         |   2         |                |    f           
-8     |   3         |   2         |                |    f
+id    |   user_id   |   group_id  |  receiver_id   
+1     |   1         |   1         |                
+2     |   2         |   1         |                
+3     |   3         |   1         |                
+4     |   4         |   1         |                
+5     |   5         |   1         |                
+6     |   1         |   2         |                
+7     |   2         |   2         |                
+8     |   3         |   2         |                
+
+INVITES
+id    |   email                 |   group_id  |  joined
+1     |   lharary@gmail.com     |   1         |   f
+2     |   spatel@gmail.com      |   1         |   f
