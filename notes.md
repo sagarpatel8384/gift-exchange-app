@@ -37,3 +37,4 @@ id    |   email                 |   group_id  |  membership_status
 TO DO
 
 1. Validate email invitations on create in group controller
+2. forgot my password
