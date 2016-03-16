@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_email(params[:email])
-
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:login_success] = "Logged in."
