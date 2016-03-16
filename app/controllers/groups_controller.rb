@@ -6,7 +6,9 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.admin = current_user
+    @user = @group.admin
     if @group.save
+      UserMailer.new_group_email(@user, @group).deliver_now
       create_group_invitations
       redirect_to @group
     else
@@ -26,6 +28,7 @@ class GroupsController < ApplicationController
 
   def create_group_invitations
     invites_array = params[:invitations].gsub(" ", "").split(",")
+    invites_array.uniq.each { |email| UserMailer.invitation_email(@user, @group).deliver_now}
     invites_array.each { |email| @group.invitations.create(email: email) }
   end
 end
