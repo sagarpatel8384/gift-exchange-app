@@ -1,0 +1,27 @@
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id='error explanation'>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %><li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='field'>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %><br />
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %><br />
+  </div>
+
+  <div class='field'>
+    <%= f.label "Bio" %><br />
+    <%= f.text_area :bio, placeholder: "Help other gifters know you better (for example, what's your favorite color? shirt size? favorite foods? etc...)" %><br />
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update Profile" %>
+  </div>
+<% end %>
