@@ -1,0 +1,8 @@
+<%= flash[:notice] %>
+
+<h1><%= @user.full_name %></h1>
+<h3><%= @user.bio %></h3>
+
+<% if @user == current_user %>
+  <%= link_to 'Edit Your Bio', edit_user_path(@user) %>
+<% end %>
