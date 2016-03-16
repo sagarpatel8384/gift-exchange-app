@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
   resources :users, only: [:new, :create]
   resources :groups, only: [:new, :create, :show]
+  resources :profiles, only: [:show]
 end
