@@ -1,9 +1,15 @@
-<%= flash[:notice] %>
+<%= flash[:login_success] %>
 
 <% if logged_in? %>
   Welcome, <%= current_user.first_name %>.
   <%= link_to "Log Out", logout_path %>
+
+  <div class="create_group_success">
+    <%= flash[:create_group_success] %>
+  </div>
+
+
 <% else %>
-  <%= link_to "Sign Up", signup_path %>| 
+  <%= link_to "Sign Up", signup_path %>|
   <%= link_to "Log In", login_path %>
 <% end %>

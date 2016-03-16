@@ -32,3 +32,8 @@ INVITES
 id    |   email                 |   group_id  |  membership_status
 1     |   lharary@gmail.com     |   1         |   f
 2     |   spatel@gmail.com      |   1         |   f
+
+
+TO DO
+
+1. Validate email invitations on create in group controller

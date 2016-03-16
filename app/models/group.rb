@@ -20,4 +20,10 @@ class Group < ActiveRecord::Base
   validates :name, :exchange_date, :max_price, :admin_id, presence: true
   validates :name, length: { in: 3..25 }
   validates :max_price, numericality: { only_integer: true }
+  validate :valid_exchange_date
+
+  def valid_exchange_date
+    today = Date.today.strftime('%Y/%m/%d')
+    errors.add(:exchange_date, "can't be in the past") if exchange_date < today
+  end
 end
