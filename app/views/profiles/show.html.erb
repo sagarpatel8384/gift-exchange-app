@@ -1,0 +1,15 @@
+<%= current_user.first_name %>
+
+<h3>Groups</h3>
+<ul>
+  <% current_user.groups.each do |group| %>
+    <li><%= link_to group.name, group_path %></li>
+  <% end %>
+</ul>
+
+<h3>Group Invitations</h3>
+<ul>
+  <% current_user.open_invitations.each do |invite| %>
+    <li><%=  invite.membership_status %></li>
+  <% end %>
+</ul>
