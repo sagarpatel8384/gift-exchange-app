@@ -8,13 +8,13 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="navbar-brand navbar-left"><%= link_to "Gift Exchange", root_path %></div>
     <% if logged_in? %>
       <div class="navbar-brand navbar-right">
-        <%= link_to "Groups", groups_path %> | 
-        <%= link_to "Create a Group", new_group_path %> | 
-        <%= link_to "Log Out", logout_path %>  
+        Welcome, <%= link_to current_user.first_name, edit_user_path(current_user), id: 'welcome' %> |
+        <%= link_to "Group +", new_group_path %> |
+        <%= link_to "Log Out", logout_path %>
       </div>
     <% else %>
       <div class="navbar-brand navbar-right">

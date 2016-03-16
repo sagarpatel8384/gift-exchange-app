@@ -1,8 +1,8 @@
 class InvitationsController < ApplicationController
   before_action :find_invitation
 
-  def edit
-    @invitation.accept(current_user) # CHANGE MEMBERSHIP STATUS
+  def update
+    @invitation.accept(current_user)
     redirect_to user_path(current_user)
   end
 

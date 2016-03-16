@@ -36,7 +36,20 @@ body {
 }
 
 nav {
-position: fixed !important; 
+position: fixed !important;
 top: 0px !important;
 width: 100% !important;
+background-color: #313841 !important;
+}
+
+nav a, .navbar-right {
+  color: white !important;
+}
+
+.navbar-brand {
+  font-size: 12px !important;
+}
+
+a {
+  text-decoration: none !important;
 }
