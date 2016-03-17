@@ -1,3 +1,36 @@
-<%= flash[:login_success] %>
+<%= form_tag root_path, method: 'get' do %>
+  <table id='home-table'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1. <%= text_field_tag "emails[]" %></td>
+        <td>2. <%= text_field_tag "emails[]" %></td>
+      </tr>
+      <tr>
+        <td>3. <%= text_field_tag "emails[]" %></td>
+        <td>4. <%= text_field_tag "emails[]" %></td>
+      </tr>
+      <tr>
+        <td>5. <%= text_field_tag "emails[]" %></td>
+        <td>6. <%= text_field_tag "emails[]" %></td>
+      </tr>
+      <tr>
+        <td>7. <%= text_field_tag "emails[]" %></td>
+        <td>8. <%= text_field_tag "emails[]" %></td>
+      </tr>
+      <tr>
+        <td>9. <%= text_field_tag "emails[]" %></td>
+        <td>10. <%= text_field_tag "emails[]" %></td>
+      </tr>
+    </tbody>
+  </table>
 
-USER NOT LOGGED IN
+  <%= link_to 'Add More Emails', signup_path %><br/>
+
+  <%= submit_tag 'Draw Names' %>
+<% end %>

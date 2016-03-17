@@ -46,3 +46,6 @@ TO DO
 7. amazon products API
 8. Associate
 9. Group page should show all users who have accepted and awaiting acceptance
+10. Remove accepted groups if blank (profile page)
+
+**** CHANGE LINK IN EMAIL WHEN PUSHED TO HEROKU
