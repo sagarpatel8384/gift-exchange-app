@@ -5,10 +5,9 @@ class WelcomeController < ApplicationController
     if logged_in?
       redirect_to user_path(current_user)
     else
-      @emails = params[:emails].reject(&:empty?) if !!params[:emails]
-      if @emails
-        results = match_pairs(@emails)
-        render plain: results
+      emails = params[:emails].reject(&:empty?) if !!params[:emails]
+      if emails
+        @results = match_pairs(emails)
       end
     end
   end

@@ -1,0 +1,17 @@
+<h3>Here are your gift exchange matches!</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Gift Giver</th>
+      <th>Gift Receiver</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @results.each do | giver, receiver| %>
+      <tr>
+        <td><%= giver %></td>
+        <td><%= receiver %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

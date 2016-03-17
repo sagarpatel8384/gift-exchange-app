@@ -5,7 +5,7 @@ class Group < ActiveRecord::Base
   belongs_to :admin, class_name: :User, foreign_key: 'admin_id'
   validates :name, :exchange_date, :max_price, :admin_id, presence: true
   validates :name, length: { in: 3..25 }
-  validates :max_price, numericality: { only_integer: true }
+  validates :max_price, numericality: { only_integer: true, greater_than: 0 }
   validate :valid_exchange_date
 
   def valid_exchange_date
