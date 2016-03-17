@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authorized?
+
   def new
   end
 
@@ -9,8 +10,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(current_user)
     else
-      flash.now[:notice] = "Email or password is invalid."
-      render 'new'
+      flash.now[:notice] = 'Email or password is invalid.'
+      render :new
     end
   end
 

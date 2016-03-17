@@ -36,16 +36,12 @@ id    |   email                 |   group_id  |  membership_status
 
 TO DO
 
-1. Validate email invitations on create in group controller
-2. forgot my password
-3. Button for admin to shuffle and close group
-  - confirmation page for closing the group (email assignments)
 4. Add more emails after group creation
 5. Edit group name/description
+
 6. paperclip gem
 7. amazon products API
-8. Associate
-9. Group page should show all users who have accepted and awaiting acceptance
-10. Remove accepted groups if blank (profile page)
+
+11. Include Register link on login page; login page on register page
 
 **** CHANGE LINK IN EMAIL WHEN PUSHED TO HEROKU

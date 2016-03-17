@@ -20,6 +20,12 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
+  def update
+    @group = Group.find(params[:id])
+    create_group_invitations
+    redirect_to @group
+  end
+
   private
 
   def group_params
@@ -27,7 +33,7 @@ class GroupsController < ApplicationController
   end
 
   def create_group_invitations
-    invites_array = params[:invitations].gsub(" ", "").split(",")
+    invites_array = params[:invitations].gsub(' ', '').split(',')
     invites_array.uniq.each { |email| UserMailer.invitation_email(email, @group).deliver_now}
     invites_array.each { |email| @group.invitations.create(email: email) }
   end

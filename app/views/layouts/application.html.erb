@@ -8,22 +8,39 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-static-top">
-  <div class="navbar-brand navbar-left"><%= link_to "Gift Exchange", root_path %></div>
-    <% if logged_in? %>
-      <div class="navbar-brand navbar-right">
-        Welcome, <%= link_to current_user.first_name, edit_user_path(current_user), id: 'welcome' %> |
-        <%= link_to "Group +", new_group_path %> |
-        <%= link_to "Log Out", logout_path %>
+
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="<%= root_path %>">Gift Exchange</a>
       </div>
-    <% else %>
-      <div class="navbar-brand navbar-right">
-        <%= link_to "Sign Up", signup_path %> |
-        <%= link_to "Log In", login_path %>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li><%= link_to "Group +", new_group_path %></li>
+            <li class="dropdown"><!-- If logged in -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Welcome, <%= current_user.first_name %>
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+                <li><%= link_to "Log Out", logout_path %></li>
+              </ul>
+             </li>
+          <% else %>
+            <li><%= link_to "Sign Up", signup_path %></li>
+            <li><%= link_to "Log In", login_path %></li> <!-- If logged out -->
+          <% end %>
+        </ul>
       </div>
-    <% end %>
-</nav>
-<%= yield %>
+    </div>
+  </nav>
+
+  <div id="main-container" class="container">
+    <div class="row">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

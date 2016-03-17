@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   resources :sessions, only: [:new, :create]
   resources :users, only: [:new, :create, :show, :edit, :update]
-  resources :groups, only: [:new, :create, :show]
+  resources :groups, only: [:new, :create, :show, :update]
   resources :invitations, only: [:update, :destroy]
   resources :memberships, only: :update
 end

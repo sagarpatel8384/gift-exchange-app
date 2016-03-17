@@ -1,4 +1,6 @@
-<h1>Create Group</h1>
+<div class="form-group col-md-8 col-md-offset-2">
+  <h3>Create a new gift exchange group</h3>
+</div>
 
 <% if @group.errors.any? %>
   <ul>
@@ -8,33 +10,33 @@
   </ul>
 <% end %>
 
-<%= form_for @group do |f| %>
-  <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name, placeholder: 'Group Name'%>
+<%= form_for @group, class: 'form-horizontal' do |f| %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: 'Group Name', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :description %><br/>
-    <%= f.text_area :description, placeholder: 'Group Description'%>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: 'Group Description', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :exchange_date %><br/>
-    <%= f.date_field :exchange_date %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :exchange_date %>
+    <%= f.date_field :exchange_date, value: '2016-12-24', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :max_price %><br/>
-    <%= f.number_field :max_price, placeholder: '50'%>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :max_price %>
+    <%= f.number_field :max_price, placeholder: 'Max Gift Price', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= label_tag :invitations, 'Invite Friends' %><br/>
-    <%= text_area_tag :invitations, nil, placeholder: 'Please enter comma separated email addresses of members you would like to invite to join this group (jkatz@example.com, icandy@example.com, etc.).' %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= label_tag :invitations, 'Invite Friends' %>
+      <%= text_area_tag :invitations, nil, placeholder: 'Please enter comma separated email addresses: jkatz@example.com, icandy@example.com, aflombaum@example.com', class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= submit_tag 'Create Group' %>
+  <div class="col-md-8 col-md-offset-2">
+    <%= f.submit 'Create Group', class: 'btn btn-danger' %>
   </div>
 <% end %>

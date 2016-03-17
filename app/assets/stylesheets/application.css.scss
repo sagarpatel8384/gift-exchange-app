@@ -23,6 +23,7 @@
 body {
   padding-top: 70px;
   padding-bottom: 30px;
+  background-color: #EAEAEA !important;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -52,4 +53,26 @@ nav a, .navbar-right {
 
 a {
   text-decoration: none !important;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: #313841;
+}
+
+.navbar-nav > li > .dropdown-menu > li > a:hover {
+    background-color: #313841;
+    background-image: none;
+}
+
+.navbar-nav > li > .dropdown-menu.open {
+    background: #313841 !important;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
 }

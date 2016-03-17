@@ -23,9 +23,9 @@ class UsersController < ApplicationController
 
   def edit
     if @user == current_user
-      render 'edit'
+      render :edit
     else
-      flash[:notice] = "You do not have access to edit this profile."
+      flash[:notice] = 'You do not have access to edit this profile.'
       redirect_to @user
     end
   end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user
     else
-      render 'edit'
+      render :edit
     end
   end
 

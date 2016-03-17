@@ -1,3 +1,7 @@
+<div class="form-group col-md-8 col-md-offset-2">
+  <h3>Edit Profile</h3>
+</div>
+
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div id='error explanation'>
@@ -9,19 +13,19 @@
     </div>
   <% end %>
 
-  <div class='field'>
+  <div class="form-group col-md-8 col-md-offset-2">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %><br />
+    <%= f.text_field :first_name, class: 'form-control' %><br />
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %><br />
+    <%= f.text_field :last_name, class: 'form-control' %><br />
   </div>
 
-  <div class='field'>
+  <div class="form-group col-md-8 col-md-offset-2">
     <%= f.label "Bio" %><br />
-    <%= f.text_area :bio, placeholder: "Help other gifters know you better (for example, what's your favorite color? shirt size? favorite foods? etc...)" %><br />
+    <%= f.text_area :bio, placeholder: "Help other gifters know you better (for example, what's your favorite color? shirt size? favorite foods? etc...)", class: 'form-control' %><br />
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update Profile" %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.submit "Update Profile", class: 'btn btn-danger' %>
   </div>
 <% end %>

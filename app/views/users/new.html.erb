@@ -1,4 +1,6 @@
-<h3>User Registration</h3>
+<div class="form-group col-md-8 col-md-offset-2">
+  <h3>Register</h3>
+</div>
 
 <% if @user.errors.any? %>
   <ul>
@@ -8,33 +10,33 @@
   </ul>
 <% end %>
 
-<%= form_for @user do |f| %>
-  <div class="field">
-    <%= f.label :first_name, 'First Name' %><br/>
-    <%= f.text_field :first_name, placeholder: 'Jeff' %>
+<%= form_for @user, class: 'form-horizontal' do |f| %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :first_name, 'First Name' %>
+    <%= f.text_field :first_name, placeholder: 'Jeff', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :last_name, 'Last Name' %><br/>
-    <%= f.text_field :last_name, placeholder: 'Katz' %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :last_name, 'Last Name' %>
+    <%= f.text_field :last_name, placeholder: 'Katz', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.text_field :email, placeholder: 'jeff@example.com' %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: 'jeff@example.com', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br/>
-    <%= f.password_field :password, placeholder: 'Password' %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, 'Confirm Password' %><br/>
-    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.label :password_confirmation, 'Confirm Password' %>
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group col-md-8 col-md-offset-2">
+    <%= f.submit 'Register', class: 'btn btn-danger' %>
   </div>
 <% end %>
