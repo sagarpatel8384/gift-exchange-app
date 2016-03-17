@@ -5,10 +5,10 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.admin = current_user
-    @user = @group.admin
+    @group.admin_membership(current_user)
+
     if @group.save
-      UserMailer.new_group_email(@user, @group).deliver_now
+      UserMailer.new_group_email(current_user, @group).deliver_now
       create_group_invitations
       redirect_to @group
     else

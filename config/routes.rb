@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :edit, :update]
   resources :groups, only: [:new, :create, :show]
   resources :invitations, only: [:update, :destroy]
+  resources :memberships, only: :update
 end

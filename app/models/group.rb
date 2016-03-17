@@ -12,4 +12,9 @@ class Group < ActiveRecord::Base
     today = Date.today.strftime('%Y/%m/%d')
     errors.add(:exchange_date, "can't be in the past") if exchange_date < today
   end
+
+  def admin_membership(current_user)
+    self.admin = current_user
+    self.users << current_user
+  end
 end

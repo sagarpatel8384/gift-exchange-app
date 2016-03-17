@@ -6,3 +6,13 @@
   <strong>Gift Exchange Date:</strong> <%= @group.exchange_date.strftime('%A, %B %d, %Y') %><br/>
   <strong>Maximum Gift Price:</strong> $<%= @group.max_price %>
 </div>
+<br>
+
+ <%= link_to "Match", membership_path(@group), method: :patch %>
+<br>
+<h3>Group Members</h3>
+<% @group.memberships.each do |membership| %>  
+  <%= membership.user.full_name %>
+  <%= membership.receiver_name if !!membership.receiver_name %>
+  <br>
+<% end %>
