@@ -18,9 +18,7 @@ class Group < ActiveRecord::Base
     self.users << current_user
   end
 
-  # GROUP ANALYTICS
-
-  def self.average_group_size
-    #
+  def admin?(current_user)
+   current_user == self.admin
   end
 end
