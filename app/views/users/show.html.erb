@@ -1,22 +1,61 @@
 <%= flash[:notice] %>
+<div>
+  <div class='col-md-2'>
+    <%= image_tag gravatar_url(@user, 150) %>
+  </div>
+  <div class='col-md-10'>
+    <div class='username'><%= @user.full_name %></div>
 
-<%= image_tag gravatar_url(@user, 64) %>
-<h1><%= @user.full_name %></h1>
-<h3><%= @user.bio %></h3>
+    <div>
+      <span class='user-data-header'>City:</span>
+      <div class='user-data'><%= @user.city %></div>
+    </div>
 
-<h3>Groups (Accepted)</h3>
-<ul>
-  <% current_user.groups.each do |group| %>
-    <li><%= link_to group.name, group_path(group) %></li>
-  <% end %>
-</ul>
+    <div>
+      <span class='user-data-header'>State:</span>
+      <div class='user-data'><%= @user.state %></div>
+    </div>
 
-<h3>Group Invitations (Pending)</h3>
-<ul>
-  <% current_user.open_invitations.each do |invite| %>
-    <li>
-      <%=  invite.group.name %> | <%= link_to 'Accept', invitation_path(invite), method: :patch %> |
-      <%= link_to 'Decline', invitation_path(invite), method: :delete %>
-    </li>
-  <% end %>
-</ul>
+    <div>
+      <span class='user-data-header'>Birthdate:</span>
+      <div class='user-data'><%= @user.birthdate.strftime("%m/%d/%Y") if @user.birthdate %></div>
+    </div>
+
+    <div>
+      <span class='user-data-header'>Bio:</span>
+      <p class='user-data bio'><%= @user.bio %></p>
+    </div>
+
+  </div>
+</div>
+<div class='row'></div>
+<p>
+  <div class='col-md-12'>
+    <div class='profile-section'>My Gift Exchanges</div>
+      <% if current_user.groups.any? %>
+        <ul>
+          <% current_user.groups.each do |group| %>
+            <li><%= link_to group.name, group_path(group) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        You are not in any gift exchanges.
+      <% end %>
+  </div>
+
+  <div class='col-md-12'>
+    <div class='profile-section'>My Invitations</div>
+    <% if current_user.open_invitations.any? %>
+      <ul>
+        <% current_user.open_invitations.each do |invite| %>
+          <li>
+            <%= invite.group.name %> <%= link_to 'Accept', invitation_path(invite), method: :patch, class:'btn btn-success btn-sm' %>
+            <%= link_to 'Decline', invitation_path(invite), method: :delete, class:'btn btn-danger btn-sm'  %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      You do not have any open invitations.
+    <% end %>
+  </div>
+</p>

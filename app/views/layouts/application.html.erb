@@ -20,7 +20,7 @@
             <li><%= link_to "Group +", new_group_path %></li>
             <li class="dropdown"><!-- If logged in -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Welcome, <%= current_user.first_name %>
+                <%= image_tag gravatar_url(@user, 24) %>
                 <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
