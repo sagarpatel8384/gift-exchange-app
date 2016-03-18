@@ -1,12 +1,11 @@
 <%= flash[:notice] %>
 <h3>
   <%= @group.name %>
-
 </h3>
 
 <hr>
 
-<h4>Group Information</h4>
+<h4 class="section-title">Group Information</h4>
 <p class="group_info">
   <strong>Group Admin:</strong> <%= @group.admin.first_name %><br/>
   <strong>Group Description:</strong> <%= @group.description %><br/>
@@ -14,7 +13,7 @@
   <strong>Maximum Gift Price:</strong> $<%= @group.max_price %>
 </p>
 
-<h4>Group Members (Matches)</h4>
+<h4 class="section-title">Group Members (Matches)</h4>
 <table class="table table-striped">
   <thead>
     <tr>
