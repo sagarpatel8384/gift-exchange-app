@@ -43,5 +43,6 @@ TO DO
 7. amazon products API
 
 11. Include Register link on login page; login page on register page
+12. Add Select Box to State
 
 **** CHANGE LINK IN EMAIL WHEN PUSHED TO HEROKU

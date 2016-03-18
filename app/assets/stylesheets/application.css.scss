@@ -37,10 +37,15 @@ body {
 }
 
 nav {
-position: fixed !important;
-top: 0px !important;
-width: 100% !important;
-background-color: #313841 !important;
+  position: fixed !important;
+  top: 0px !important;
+  width: 100% !important;
+  background-color: #313841 !important;
+}
+
+#footer {
+  color: white !important;
+  background-color: #313841 !important;
 }
 
 nav a, .navbar-right {

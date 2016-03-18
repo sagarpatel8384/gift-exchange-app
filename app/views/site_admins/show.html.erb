@@ -1,0 +1,27 @@
+<div class="form-group col-md-12">
+  <h3>Administrator Panel</h3>
+</div>
+
+<div class="form-group col-md-12">
+  <div class="User Analytics">
+    <p>
+      <span class="user-data-header">Average Age of Users:</span>
+      <%= @avg_ages %>
+    </p>
+
+
+
+  <div class="location-data panel panel-default">
+    <div class="panel-heading">User Locations by State</div>
+    <div class="panel-body">
+    <%= column_chart @state_count, library: { backgroundColor: "#EAEAEA" } %>
+    </div>
+  </div>
+
+  <div class="location-data panel panel-default">
+    <div class="panel-heading">User Locations by Country</div>
+    <div class="panel-body">
+    <%= geo_chart @country_count, library: { backgroundColor: "#EAEAEA" } %>
+    </div>
+  </div>
+</div>

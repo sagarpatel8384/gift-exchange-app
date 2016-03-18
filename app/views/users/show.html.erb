@@ -17,6 +17,11 @@
     </div>
 
     <div>
+      <span class='user-data-header'>Country:</span>
+      <div class='user-data'><%= @user.country %></div>
+    </div>
+
+    <div>
       <span class='user-data-header'>Birthdate:</span>
       <div class='user-data'><%= @user.birthdate.strftime("%m/%d/%Y") if @user.birthdate %></div>
     </div>

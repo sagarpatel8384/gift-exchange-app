@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :groups, only: [:new, :create, :show, :update]
   resources :invitations, only: [:update, :destroy]
   resources :memberships, only: :update
+  resources :site_admins, only: :show
 end

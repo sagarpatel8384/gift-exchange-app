@@ -17,4 +17,10 @@ class Group < ActiveRecord::Base
     self.admin = current_user
     self.users << current_user
   end
+
+  # GROUP ANALYTICS
+
+  def self.average_group_size
+    #
+  end
 end
