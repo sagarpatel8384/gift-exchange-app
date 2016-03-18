@@ -17,4 +17,8 @@ class Group < ActiveRecord::Base
     self.admin = current_user
     self.users << current_user
   end
+
+  def admin?(current_user)
+   current_user== self.admin
+  end
 end
