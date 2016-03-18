@@ -1,7 +1,7 @@
 <%= flash[:notice] %>
 <h3>
   <%= @group.name %>
-  
+
 </h3>
 
 <hr>
@@ -15,12 +15,21 @@
 </p>
 
 <h4>Group Members (Matches)</h4>
-<p>
-  <% @group.memberships.each do |membership| %>
-    <%= membership.user.full_name %>
-    (<%= membership.receiver_name if !!membership.receiver_name %>)
-    <br>
-  <% end %>
-</p>
-<%= render 'admin_controls' if @admin_flag%>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Gift Giver</th>
+      <th>Gift Receiver</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @group.memberships.each do |membership| %>
+      <tr>
+        <td><%= membership.user.full_name %></td>
+        <td><%= !!membership.receiver_name ? membership.receiver_name : 'Matches have not yet been drawn'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
+<%= render 'admin_controls' if @admin_flag %>
