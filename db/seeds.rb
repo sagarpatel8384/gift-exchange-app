@@ -12,19 +12,30 @@ countries_db = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antig
 
 countries_db.each { |country| Country.create(name: country) }
 
-# USERS
-@sagar = User.create(first_name: 'Sagar', last_name: 'Patel', email: 'sagar@example.com', password: 'sagarexample', password_confirmation: 'sagarexample')
-@leon = User.create(first_name: 'Leon', last_name: 'Harary', email: 'leon@example.com', password: 'leonexample', password_confirmation: 'leonexample')
-@justin = User.create(first_name: 'Justin', last_name: 'Curhan', email: 'justin@example.com', password: 'justinexample', password_confirmation: 'justinexample')
+# REAL_USERS
+@sagar = User.create(
+  first_name: 'Sagar', last_name: 'Patel', email: 'sagar@giftdotcom.com', password: 'testpassword',
+  password_confirmation: 'testpassword', birthdate: '1983-10-7', city: 'New York', state: 'NY', country: 'United States of America'
+)
+@leon = User.create(
+  first_name: 'Leon', last_name: 'Harary', email: 'leon@giftdotcom.com', password: 'testpassword',
+  password_confirmation: 'testpassword', birthdate: '1991-4-23', city: 'New York', state: 'NY', country: 'United States of America'
+)
+@justin = User.create(
+  first_name: 'Justin', last_name: 'Curhan', email: 'justin@giftdotcom.com', password: 'testpassword',
+  password_confirmation: 'testpassword', birthdate: '1990-12-8', city: 'New York', state: 'NY', country: 'United States of America'
+)
 
 dates = %w(1980-12-2 1975-10-24 1990-11-10)
+
 countries = [
   "United States", "Australia", "United Kingdom",
   "Canada", "Mexico", "Spain", "France", "Germany",
   "Italy", "Russia", "China", "India"
 ]
 
-500.times do
+# AUTOMATED USERS
+250.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -39,34 +50,46 @@ countries = [
 end
 
 # SITE ADMIN
-@sa = SiteAdmin.new.user = @sagar
-@sa.save
+@site_admin_sagar = SiteAdmin.create.user = @sagar
+@site_admin_leon = SiteAdmin.create.user = @leon
+@site_admin_justin = SiteAdmin.create.user = @justin
 
 # GROUPS
-@flatiron = Group.create(name: 'Flatiron Gift Swap', description: '2016 Slackbeef Holiday Gift Exchange', exchange_date: '2016-12-2', max_price: 50, admin_id: @sagar.id)
+@flatiron = Group.create(name: 'Flatiron Gift Swap', description: 'Flatiron School Annual Holiday Party', exchange_date: '2016-12-2', max_price: 50, admin_id: @sagar.id)
+@slackbeef = Group.create(name: 'SlackBeef Party', description: '2016 Slackbeef Holiday Gift Exchange', exchange_date: '2016-12-2', max_price: 50, admin_id: @leon.id)
 @ruby_beginners = Group.create(name: 'Ruby Beginners Gift Swap', description: 'Ruby Beginners Holiday Gift Swap', exchange_date: '2016-12-2', max_price: 100, admin_id: @justin.id)
 
-group_name = ['Office', 'Friends', 'School']
-party_name = ['Holiday Party', 'Gift Exchance', 'Gift Swap', '2016 Party']
+party_name = ['Holiday Party', 'Gift Exchance', 'Gift Swap', 'Party 2016', 'Annual Fun Time', 'Secret Santa', 'Hanukkah Party']
 dates = %w(2016-12-2 2016-12-24 2016-11-10 2016-12-2 2016-12-2)
 
-10.times do
+50.times do
   Group.create(
-    name: "#{group_name.sample} #{party_name.sample}",
+    name: "#{Faker::Company.name} #{party_name.sample}",
     description: Faker::Lorem.sentence(5),
     exchange_date: (Date.today + 1 + rand(1..200)).strftime('%Y/%m/%d'),
     max_price: rand(25..100),
-    admin_id: rand(1..50)
+    admin_id: rand(5..250)
   )
 end
 
 # MEMBERSHIPS
-
 @sagar.groups << @ruby_beginners
 @leon.groups << @ruby_beginners
 @justin.groups << @ruby_beginners
 
+all_users = User.all
+all_groups = Group.all
+
+all_groups.each do |group|
+  rand(8).times { group.users << all_users.sample }
+end
+
 # INVITATIONS
-@flatiron.invitations.create(email: 'sagar@example.com')
-@flatiron.invitations.create(email: 'leon@example.com')
-@flatiron.invitations.create(email: 'justin@example.com')
+@flatiron.invitations.create(email: 'leon@giftdotcom.com')
+@flatiron.invitations.create(email: 'justin@giftdotcom.com')
+
+@slackbeef.invitations.create(email: 'sagar@giftdotcom.com')
+@slackbeef.invitations.create(email: 'justin@giftdotcom.com')
+
+@ruby_beginners.invitations.create(email: 'sagar@giftdotcom.com')
+@ruby_beginners.invitations.create(email: 'leon@giftdotcom.com')
