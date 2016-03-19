@@ -31,17 +31,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to @user
-    else
-      render :edit
-    end
+    @user.update(user_params) ? redirect_to @user : render :edit
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :city, :state, :country, :birthdate, :bio, :password, :password_confirmation)
+    params.require(:user).permit(
+      :first_name, :last_name, :email, :city, :state, :country,
+      :birthdate, :bio, :password, :password_confirmation
+    )
   end
 
   def find_user

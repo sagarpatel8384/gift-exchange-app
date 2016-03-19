@@ -16,8 +16,6 @@ class SiteAdminsController < ApplicationController
   private
 
   def site_admin?
-    if !current_user.site_admin?
-      redirect_to current_user
-    end
+    redirect_to current_user if !current_user.site_admin?
   end
 end

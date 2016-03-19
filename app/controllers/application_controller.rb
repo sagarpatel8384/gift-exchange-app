@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authorized?
-    if !logged_in?
-      redirect_to login_path
-    end
+    redirect_to login_path if !logged_in?
   end
 
   def current_user

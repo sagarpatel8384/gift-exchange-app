@@ -1,7 +1,6 @@
 class InvitationsController < ApplicationController
   before_action :find_invitation, except: :create
   def create
-    binding.pry
     @group = Group.find(params[:id])
     create_group_invitations
     redirect_to @group
