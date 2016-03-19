@@ -122,6 +122,7 @@ We would like to build out the following features in the future:
 2. Implementation of a User wishlist table
 3. Amazon Product Advertising API support for product search
 4. Additional Group Admin data analytics
+5. Update Group creation specs and add additional specs
 
 ## Authors
 

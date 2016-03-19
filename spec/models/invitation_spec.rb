@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-describe Invitation do 
+describe Invitation do
   describe "data" do
     it "has an email" do
       expect(@invite_one.email).to eq("example@example.com")
     end
 
-    it "has a membership status that defaults to false" do
-      expect(@invite_one.membership_status).to eq(false)
-    end 
-  end 
+    it "has a membership status that defaults to pending" do
+      expect(@invite_one.membership_status).to eq("pending")
+    end
+  end
 
-  describe "associations" do 
+  describe "associations" do
     it "belongs to a group"  do
       expect(@invite_one.group.class).to eq(Group)
     end

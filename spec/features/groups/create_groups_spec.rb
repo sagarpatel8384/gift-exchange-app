@@ -3,7 +3,7 @@ require 'feature_helper'
 describe 'creating groups' do
   it 'should have a form to create groups' do
     visit new_group_path
-    expect(page).to have_css('form#new_group')
+    expect(page).to have_css('form#group_form')
   end
 
   xit 'should create a group when form is submitted' do
