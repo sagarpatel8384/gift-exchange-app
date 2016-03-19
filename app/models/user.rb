@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 
   def self.average_user_age
     users_with_bdays = self.where('birthdate IS NOT NULL').select('birthdate')
-    users_with_bdays.inject(0) { |sum, user| sum + user.age } / users_with_bdays.size
+    "%.2f" % (users_with_bdays.inject(0) { |sum, user| sum + user.age } / users_with_bdays.size)
   end
 
   def self.user_state_count

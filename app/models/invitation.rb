@@ -13,4 +13,29 @@ class Invitation < ActiveRecord::Base
     self.membership_status = 'declined'
     self.save
   end
+
+  # CLASS ANALYTICS
+
+  def self.total_invitations
+    Invitation.count
+  end
+
+  def self.total_accepted
+    Invitation.where('membership_status = ?', 'accepted').count
+  end
+
+  def self.total_pending
+    Invitation.where('membership_status = ?', 'pending').count
+  end
+
+  def self.total_declined
+    Invitation.where('membership_status = ?', 'declined').count
+  end
+
+  def self.percent_membership_status
+    percent_accepted = (self.total_accepted.to_f / self.total_invitations) * 100
+    percent_pending = (self.total_pending.to_f / self.total_invitations) * 100
+    percent_declined = (self.total_declined.to_f / self.total_invitations) * 100
+    { accepted: percent_accepted, pending: percent_pending, declined: percent_declined }
+  end
 end
