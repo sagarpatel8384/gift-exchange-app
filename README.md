@@ -25,6 +25,8 @@ In addition to the user experience, GiftExchange has built out a site administra
 ![users by state](/app/assets/images/user-location-by-state.png)
 ![users by country](/app/assets/images/user-location-by-country.png)
 
+##### Related code in respective models
+
 ```ruby
 def self.average_user_age
   users_with_bdays = self.where('birthdate IS NOT NULL').select('birthdate')
@@ -45,6 +47,8 @@ end
 ![average gift value by state](/app/assets/images/average-gift-value-by-state.png)
 ![average gift value by country](/app/assets/images/average-gift-value-by-country.png)
 
+##### Related code in respective models
+
 ```ruby
 def self.gift_amount_by_state
   gift_by_state = Group.joins(:users).group("state").average("max_price")
@@ -57,6 +61,8 @@ def self.gift_amount_by_country
 end
 ```
 ![invitation status analytics](/app/assets/images/invitation-status-analytics.png)
+
+##### Related code in respective models
 
 ```ruby
 def self.total_invitations
@@ -84,6 +90,8 @@ end
 ```
 
 ![user and group analytics](/app/assets/images/user-and-group-analytics.png)
+
+##### Related code in respective models
 
 ```ruby
 def self.average_user_age
