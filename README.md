@@ -4,6 +4,18 @@ GiftExchange is a web application built in the Ruby programming language using t
 
 ## GiftExchange Pairing
 
+GiftExchange allows both registered and unregistered users to use our matching algorithm to match unique pairs for gift swaps. When first visiting the site, users are presented with a form which the user can use to match pairs.
+
+![pair-form-unregistered.png](/app/assets/images/pair-form-unregistered.png)
+
+##### Results
+
+![pair-results-unregistered.png](/app/assets/images/pair-results-unregistered.png)
+
+Once logged in, only users who are designated as 'group admins' are allowed to match members of a group. 
+
+### Pairing Algorithm
+
 In order to assign unique partners within a gift exchange group, we've written the following simple algorithm:
 
 ```ruby
