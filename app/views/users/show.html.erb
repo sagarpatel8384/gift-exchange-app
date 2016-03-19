@@ -33,34 +33,52 @@
 
   </div>
 </div>
+
 <div class='row'></div>
-<p>
   <div class='col-md-12'>
     <div class='profile-section section-title'>My Gift Exchanges</div>
       <% if current_user.groups.any? %>
-        <ul>
-          <% current_user.groups.each do |group| %>
-            <li><%= link_to group.name, group_path(group) %></li>
-          <% end %>
-        </ul>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Group Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% current_user.groups.each do |group| %>
+              <tr>
+                <td><%= link_to group.name, group_path(group) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       <% else %>
         You are not in any gift exchanges.
       <% end %>
+    </div>
   </div>
 
   <div class='col-md-12'>
     <div class='profile-section section-title'>My Invitations</div>
-    <% if current_user.open_invitations.any? %>
-      <ul>
-        <% current_user.open_invitations.each do |invite| %>
-          <li>
-            <%= invite.group.name %> <%= link_to 'Accept', invitation_path(invite), method: :patch, class:'btn btn-success btn-sm' %>
-            <%= link_to 'Decline', invitation_path(invite), method: :delete, class:'btn btn-danger btn-sm'  %>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      You do not have any open invitations.
-    <% end %>
+      <% if current_user.open_invitations.any? %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Group Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% current_user.open_invitations.each do |invite| %>
+              <tr>
+                <td><%= invite.group.name %></td>
+                <td><%= link_to 'Accept', invitation_path(invite), method: :patch, class:'btn btn-success btn-sm' %></td>
+                <td><%= link_to 'Decline', invitation_path(invite), method: :delete, class:'btn btn-danger btn-sm'  %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        You do not have any open invitations.
+      <% end %>
+    </div>
   </div>
-</p>

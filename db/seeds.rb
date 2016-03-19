@@ -50,9 +50,9 @@ countries = [
 end
 
 # SITE ADMIN
-@site_admin_sagar = SiteAdmin.create.user = @sagar
-@site_admin_leon = SiteAdmin.create.user = @leon
-@site_admin_justin = SiteAdmin.create.user = @justin
+@site_admin_sagar = SiteAdmin.create.tap { |site_admin| site_admin.user = @sagar }.save
+@site_admin_leon = SiteAdmin.create.tap { |site_admin| site_admin.user = @leon }.save
+@site_admin_justin = SiteAdmin.create.tap { |site_admin| site_admin.user = @justin }.save
 
 # GROUPS
 @flatiron = Group.create(name: 'Flatiron Gift Swap', description: 'Flatiron School Annual Holiday Party', exchange_date: '2016-12-2', max_price: 50, admin_id: @sagar.id)
