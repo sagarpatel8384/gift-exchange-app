@@ -37,7 +37,7 @@
     <%= f.label :state %>
     <%= f.collection_select :state, State.all, :name, :name %>
     <%= f.label :country %>
-    <%= f.collection_select :country, Country.all, :name, :name %>
+    <%= f.collection_select :country, Country.all, :name, :name, selected: 'United States of America' %>
   </div>
 
   <div class="form-group col-md-8 col-md-offset-2">
