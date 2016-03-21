@@ -22,6 +22,15 @@ class Group < ActiveRecord::Base
    current_user == self.admin
   end
 
+  def close
+    self.open = false
+  end
+
+  def send_match_emails
+    self.memberships.each do |membership|
+      UserMailer.match_email(self, membership.user, User.find(membership.receiver_id))
+    end
+  end
   # CLASS ANALYTICS
 
   def self.num_active_groups

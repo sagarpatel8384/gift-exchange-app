@@ -1,6 +1,6 @@
-<%= link_to "Match", membership_path(@group), method: :patch, class: 'btn btn-danger' %>
+<%= (link_to "Match", membership_path(@group), method: :patch, class: 'btn btn-danger') if @group.open%>
 <%= link_to "Edit Group Info", edit_group_path, method: :get, class: 'btn btn-danger' %>
-
+<% if @group.open %>
 <%= form_tag '/invitations', method: :post, class: 'form-horizontal' do %>
   <p>
     <div class="form-group col-md-12">
@@ -15,4 +15,5 @@
       <%= submit_tag 'Send More Invites', class: 'btn btn-danger' %>
     </div>
   </p>
+  <% end %>
 <% end %>

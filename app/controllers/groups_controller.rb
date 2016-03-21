@@ -43,10 +43,4 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, :description, :exchange_date, :max_price)
   end
-
-  def create_group_invitations
-    invites_array = params[:invitations].gsub(' ', '').split(',')
-    invites_array.uniq.each { |email| UserMailer.invitation_email(email, @group).deliver_now}
-    invites_array.each { |email| @group.invitations.create(email: email) }
-  end
 end

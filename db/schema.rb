@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318175016) do
+ActiveRecord::Schema.define(version: 20160321143810) do
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20160318175016) do
     t.datetime "exchange_date"
     t.integer  "max_price"
     t.integer  "admin_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "open",          default: true
   end
 
   create_table "invitations", force: :cascade do |t|

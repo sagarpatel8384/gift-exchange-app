@@ -17,4 +17,12 @@ class UserMailer < ApplicationMailer
     @url = 'http://gif-club.tumblr.com/'
     mail(to: email, subject: "#{group.admin.first_name} wants you to join a GIFTdotCOM.com")
   end
+
+  def match_email(group, giver, receiver)
+    @group = group
+    @giver = giver
+    @receiver = receiver
+    @url = 'http://gif-club.tumblr.com/'
+    mail(to: giver.email, subject: "You're giving a gift to #{receiver.full_name} in #{group.name}")
+  end
 end
