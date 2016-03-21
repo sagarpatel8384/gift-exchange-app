@@ -28,7 +28,7 @@
         <% if membership.user == current_user || @admin_flag %>
           <td><%= !!membership.receiver_name ? membership.receiver_name : 'Matches have not yet been drawn'%></td>
           <% else %>  
-          <td><i><%= "Hidden" %></i></td>
+          <td><%= @group.open ? "Matches have not yet been drawn" : "Hidden" %></td>
         </tr>
         <% end %>
     <% end %>

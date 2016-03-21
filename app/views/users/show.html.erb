@@ -65,12 +65,14 @@
         </tr>
       </thead>
       <tbody>
-        <% current_user.open_invitations.each do |invite| %>
-          <tr>
-            <td><%= invite.group.name %></td>
-            <td><%= link_to 'Accept', invitation_path(invite), method: :patch, class:'btn btn-success btn-sm' %></td>
-            <td><%= link_to 'Decline', invitation_path(invite), method: :delete, class:'btn btn-danger btn-sm'  %></td>
+        <% current_user.open_invitations.each do |invitation| %>
+          <% if invitation.group.open %>
+            <tr>
+              <td><%= invitation.group.name %></td>
+              <td><%= link_to 'Accept', invitation_path(invitation), method: :patch, class:'btn btn-success btn-sm' %></td>
+              <td><%= link_to 'Decline', invitation_path(invitation), method: :delete, class:'btn btn-danger btn-sm'  %></td>
           </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>

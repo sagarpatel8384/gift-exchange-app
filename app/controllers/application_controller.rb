@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def create_group_invitations
+    invites_array = params[:invitations].gsub(' ', '').split(',')
+    distinct_invites = invites_array.uniq.select { |email| !@group.invitations.find_by_email(email)}
+    distinct_invites.each { |email| UserMailer.invitation_email(email, @group).deliver_now}
+    distinct_invites.each { |email| @group.invitations.create(email: email) }
+  end
+
   def authorized?
     redirect_to login_path if !logged_in?
   end
