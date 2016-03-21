@@ -17,19 +17,19 @@ class Invitation < ActiveRecord::Base
   # CLASS ANALYTICS
 
   def self.total_invitations
-    Invitation.count
+    self.count
   end
 
   def self.total_accepted
-    Invitation.where('membership_status = ?', 'accepted').count
+    self.where('membership_status = ?', 'accepted').count
   end
 
   def self.total_pending
-    Invitation.where('membership_status = ?', 'pending').count
+    self.where('membership_status = ?', 'pending').count
   end
 
   def self.total_declined
-    Invitation.where('membership_status = ?', 'declined').count
+    self.where('membership_status = ?', 'declined').count
   end
 
   def self.percent_membership_status

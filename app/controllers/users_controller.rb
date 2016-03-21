@@ -19,6 +19,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @total_gifts_received = current_user.total_gifts_received
+    @total_gifts_given = current_user.total_gifts_given
+    @gifts_given_to = current_user.gifts_given_to
+    @gifts_received_from = current_user.gifts_received_from
   end
 
   def edit

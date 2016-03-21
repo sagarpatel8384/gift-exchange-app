@@ -47,4 +47,22 @@ class User < ActiveRecord::Base
     users_with_country = self.where('country IS NOT NULL AND country != ?', "").select('country')
     users_with_country.each_with_object(Hash.new(0)) { |user, hash| hash[user.country] += 1 }
   end
+
+  # INSTANCE ANALYTICS
+
+  def total_gifts_received
+    Membership.where("receiver_id = ?", self.id).count(:receiver_id)
+  end
+
+  def total_gifts_given
+    Membership.where("user_id = ? AND receiver_id IS NOT NULL", self.id).count(:receiver_id)
+  end
+
+  def gifts_given_to
+    Membership.where("user_id = ? AND receiver_id IS NOT NULL", self.id).collect(&:receiver_name)
+  end
+
+  def gifts_received_from
+    Membership.where("receiver_id = ?", self.id).collect { |u| u.full_name }
+  end
 end

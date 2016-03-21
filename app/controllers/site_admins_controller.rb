@@ -7,8 +7,9 @@ class SiteAdminsController < ApplicationController
     @country_count = User.user_country_count
     @membership_stats = Invitation.percent_membership_status
     @num_active_groups = Group.num_active_groups
+    @num_inactive_groups = Group.num_inactive_groups
     @avg_group_size = Group.avg_group_size
-    @defunct_groups_count = Group.num_defunct_groups_count
+    @defunct_groups = Group.num_defunct_groups
     @avg_gift_by_state = Group.gift_amount_by_state
     @avg_gift_by_country = Group.gift_amount_by_country
   end

@@ -82,3 +82,23 @@
       <% end %>
     </div>
   </div>
+
+  <div class="location-data panel panel-default">
+    <div class="panel-heading data-header">User Gift Information</div>
+    <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Total Gifts Received</th>
+              <th>Total Gifts Given</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td><%= @total_gifts_received %></td>
+                <td><%= @total_gifts_given %></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
