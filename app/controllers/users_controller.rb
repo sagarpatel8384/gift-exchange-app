@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params) ? redirect_to @user : render :edit
+    @user.update(user_params) ? (redirect_to @user) : (render :edit)
   end
 
   private
