@@ -24,6 +24,9 @@ class Group < ActiveRecord::Base
 
   def close
     self.open = false
+    self.invitations.each do |invitation|
+      invitation.decline if (invitation.membership_status == "pending")
+    end
   end
 
   def send_match_emails
