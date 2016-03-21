@@ -63,6 +63,6 @@ class User < ActiveRecord::Base
   end
 
   def gifts_received_from
-    Membership.where("receiver_id = ?", self.id).collect { |u| u.full_name }
+    Membership.where("receiver_id = ?", self.id).collect { |membership| membership.user.full_name }
   end
 end

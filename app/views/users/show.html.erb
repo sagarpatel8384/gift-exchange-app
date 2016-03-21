@@ -30,75 +30,105 @@
       <span class='user-data-header section-title'>Bio:</span>
       <p class='user-data bio'><%= @user.bio %></p>
     </div>
-
   </div>
 </div>
 
-<div class='row'></div>
-  <div class='col-md-12'>
-    <div class='profile-section section-title'>My Gift Exchanges</div>
-      <% if current_user.groups.any? %>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Group Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% current_user.groups.each do |group| %>
-              <tr>
-                <td><%= link_to group.name, group_path(group) %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% else %>
-        You are not in any gift exchanges.
-      <% end %>
-    </div>
+<div class='col-md-12'>
+  <div class='profile-section section-title'>My Gift Exchanges</div>
+  <% if current_user.groups.any? %>
+    <table class="table">
+      <thead>
+        <tr>
+        <th>Group Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_user.groups.each do |group| %>
+          <tr>
+            <td><%= link_to group.name, group_path(group) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    You are not in any gift exchanges.
+  <% end %>
+</div>
+
+<div class='col-md-12'>
+  <div class='profile-section section-title'>My Invitations</div>
+  <% if current_user.open_invitations.any? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Group Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_user.open_invitations.each do |invite| %>
+          <tr>
+            <td><%= invite.group.name %></td>
+            <td><%= link_to 'Accept', invitation_path(invite), method: :patch, class:'btn btn-success btn-sm' %></td>
+            <td><%= link_to 'Decline', invitation_path(invite), method: :delete, class:'btn btn-danger btn-sm'  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    You do not have any open invitations.
+  <% end %>
+</div>
+
+<div class='col-md-12'>
+  <div class='profile-section section-title'>User Gift Exchange Information</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Total Gifts Received</th>
+        <th>Total Gifts Given</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @total_gifts_received %></td>
+        <td><%= @total_gifts_given %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<% unless @gifts_given_to.empty? || @gifts_received_from.empty? %>
+  <div class='col-md-6'>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Gifts Given To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @gifts_given_to.each do |receiver| %>
+          <tr>
+            <td><%= receiver %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 
-  <div class='col-md-12'>
-    <div class='profile-section section-title'>My Invitations</div>
-      <% if current_user.open_invitations.any? %>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Group Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% current_user.open_invitations.each do |invite| %>
-              <tr>
-                <td><%= invite.group.name %></td>
-                <td><%= link_to 'Accept', invitation_path(invite), method: :patch, class:'btn btn-success btn-sm' %></td>
-                <td><%= link_to 'Decline', invitation_path(invite), method: :delete, class:'btn btn-danger btn-sm'  %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% else %>
-        You do not have any open invitations.
-      <% end %>
-    </div>
+  <div class='col-md-6'>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Gifts Received From</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @gifts_received_from.each do |giver| %>
+          <tr>
+            <td><%= giver %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-
-  <div class="location-data panel panel-default">
-    <div class="panel-heading data-header">User Gift Information</div>
-    <div class="panel-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Total Gifts Received</th>
-              <th>Total Gifts Given</th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <td><%= @total_gifts_received %></td>
-                <td><%= @total_gifts_given %></td>
-              </tr>
-          </tbody>
-        </table>
-    </div>
-  </div>
+<% end %>
