@@ -12,19 +12,26 @@ GiftExchange allows both registered and unregistered users to use our matching a
 
 ![pair-results-unregistered.png](/app/assets/images/pair-results-unregistered.png)
 
-Once logged in, only users who are designated as 'group admins' are allowed to match members of a group. 
+Once logged in, only users who are designated as 'group admins' are allowed to match members of a group.
 
 ### Pairing Algorithm
 
 In order to assign unique partners within a gift exchange group, we've written the following simple algorithm:
 
 ```ruby
-def match_pairs(group_user_info)
-  match = group_user_info.to_a.shuffle!.each_with_object({}).with_index do |(user, hash), index|
-    hash[user] = group_user_info[index + 1]
-  end
+def match_pairs(group)
+  shuffled_group = shuffle_users(group)
+  match_hash(shuffled_group)
+end
 
-  match.tap { match[group_user_info.last] = group_user_info.first }
+def shuffle_users(group)
+  group.to_a.shuffle
+end
+
+def match_hash(shuffled_group)
+  shuffled_group.each_with_object({}).with_index do |(user, hash), index|
+    hash[user] = shuffled_group[index + 1]
+  end.tap { |matches| matches[shuffled_group.last] = shuffled_group.first }
 end
 ```
 

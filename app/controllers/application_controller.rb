@@ -19,25 +19,18 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def match_pairs(array)
-    array.to_a.shuffle!
-    idx = 0
-    match_hash = {}
-
-    while idx < array.length - 1
-      match_hash[array[idx]] = array[idx+1]
-      idx +=1
-    end
-
-    match_hash[array[-1]] = array[0]
-    match_hash
+  def match_pairs(group)
+    shuffled_group = shuffle_users(group)
+    match_hash(shuffled_group)
   end
 
-  # def match_pairs(group_user_info)
-  #   match = group_user_info.to_a.shuffle!.each_with_object({}).with_index do |(user, hash), index|
-  #     hash[user] = group_user_info[index + 1]
-  #   end
-  #
-  #   match.tap { match[group_user_info.last] = group_user_info.first }
-  # end
+  def shuffle_users(group)
+    group.to_a.shuffle
+  end
+
+  def match_hash(shuffled_group)
+    shuffled_group.each_with_object({}).with_index do |(user, hash), index|
+      hash[user] = shuffled_group[index + 1]
+    end.tap { |matches| matches[shuffled_group.last] = shuffled_group.first }
+  end
 end
