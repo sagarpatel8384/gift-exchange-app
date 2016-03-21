@@ -22,7 +22,7 @@ RSpec.configure do |config|
   end
   config.before(:each) do
     # USER FIXTURES
-    @sagar = User.create(first_name: "Sagar", last_name: "Patel", email: "example@example.com", password: "example", password_confirmation: "example")
+    @sagar = User.create(first_name: "Sagar", last_name: "Patel", email: "example@example.com", password: "testpassword", password_confirmation: "testpassword")
 
     # GROUP FIXTURES
     @flatiron = Group.create(name: "Flatiron", description: "Flatiron gift exchange for fall 2016 graduation!", exchange_date: "2016-12-24", max_price: 40, admin_id: @sagar.id)

@@ -1,7 +1,14 @@
 require 'feature_helper'
 
 describe 'creating groups' do
-  it 'should have a form to create groups' do
+
+  @sagar = User.create(first_name: "Sagar", last_name: "Patel", email: "example@example.com", password: "testpassword", password_confirmation: "testpassword")
+
+  xit 'should have a form to create groups' do
+    visit new_session_path
+    fill_in 'email', with: 'example@example.com'
+    fill_in 'password', with: 'testpassword'
+    click_button('Login')
     visit new_group_path
     expect(page).to have_css('form#group_form')
   end
