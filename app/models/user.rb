@@ -39,13 +39,11 @@ class User < ActiveRecord::Base
   end
 
   def self.user_state_count
-    users_with_state = self.where('state IS NOT NULL AND state != ?', "").select(:state).order(:state)
-    users_with_state.each_with_object(Hash.new(0)) { |user, hash| hash[user.state] += 1 }
+    self.where('state IS NOT NULL AND state != ?', "").group('state').count('state')
   end
 
   def self.user_country_count
-    users_with_country = self.where('country IS NOT NULL AND country != ?', "").select('country')
-    users_with_country.each_with_object(Hash.new(0)) { |user, hash| hash[user.country] += 1 }
+    self.where('country IS NOT NULL AND country != ?', "").group('country').count('country')
   end
 
   # INSTANCE ANALYTICS
