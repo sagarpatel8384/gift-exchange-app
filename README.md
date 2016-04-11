@@ -1,10 +1,10 @@
-# Welcome to GiftExchange
+# Welcome to GiftSwap
 
-GiftExchange is a web application built in the Ruby programming language using the Rails framework. GiftExchange is an app that allows users to create groups for gift exchange events (e.g., Secret Santa). Once a user has accepted a group invitation, the group admin has the ability to randomly generate gift exchange pairs.
+GiftSwap is a web application built in the Ruby programming language using the Rails framework. GiftSwap is an application that allows users to create groups for gift exchange events (e.g., Secret Santa). Once a user has accepted a group invitation, the group admin has the ability to randomly generate gift exchange pairs.
 
-## GiftExchange Pairing
+## GiftSwap Pairing
 
-GiftExchange allows both registered and unregistered users to use our matching algorithm to match unique pairs for gift swaps. When first visiting the site, users are presented with a form which the user can use to match pairs.
+GiftSwap allows both registered and unregistered users to use our matching algorithm to match unique pairs for gift swaps. When first visiting the site, users are presented with a form which the user can use to match pairs.
 
 ![pair-form-unregistered.png](/app/assets/images/pair-form-unregistered.png)
 
@@ -16,7 +16,7 @@ Once logged in, only users who are designated as 'group admins' are allowed to m
 
 ### Pairing Algorithm
 
-In order to assign unique partners within a gift exchange group, we've written the following simple algorithm:
+In order to assign unique partners within a GiftSwap group, we've written the following simple algorithm:
 
 ```ruby
 def match_pairs(group)
@@ -39,7 +39,7 @@ The above code takes into account that no two people will be assigned each other
 
 ## Data Analytics
 
-In addition to the user experience, GiftExchange has built out a site administrator panel that provides visual representation of various user and group data. The below screenshots utilize the [chartkick](https://github.com/ankane/chartkick) gem.
+In addition to the user experience, GiftSwap has built out a site administrator panel that provides visual representation of various user and group data. The below screenshots utilize the [chartkick](https://github.com/ankane/chartkick) gem.
 
 ![users by state](/app/assets/images/user-location-by-state.png)
 ![users by country](/app/assets/images/user-location-by-country.png)
@@ -151,4 +151,4 @@ We would like to build out the following features in the future:
 
 ## License
 
-Gift Exchange App is MIT Licensed. See LICENSE for details.
+GiftSwap App is MIT Licensed. See LICENSE for details.

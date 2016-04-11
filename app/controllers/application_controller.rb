@@ -14,10 +14,6 @@ class ApplicationController < ActionController::Base
     distinct_invites.each { |email| @group.invitations.create(email: email) }
   end
 
-  def authorized?
-    redirect_to login_path if !logged_in?
-  end
-
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
