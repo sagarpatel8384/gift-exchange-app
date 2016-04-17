@@ -34,6 +34,7 @@ class Group < ActiveRecord::Base
       UserMailer.match_email(self, membership.user, User.find(membership.receiver_id))
     end
   end
+  
   # CLASS ANALYTICS
 
   def self.num_active_groups

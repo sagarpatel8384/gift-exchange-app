@@ -1,38 +1,40 @@
-<%= flash[:notice] %>
-<h3>
-  <%= @group.name %>
-</h3>
+<div class="col-md-offset-2 col-md-8">
+  <%= flash[:notice] %>
+  <h3>
+    <%= @group.name %>
+  </h3>
 
-<hr>
+  <hr>
 
-<h4 class="section-title">Group Information</h4>
-<p class="group_info">
-  <strong>Group Admin:</strong> <%= @group.admin.first_name %><br/>
-  <strong>Group Description:</strong> <%= @group.description %><br/>
-  <strong>GiftSwap Date:</strong> <%= @group.exchange_date.strftime('%A, %B %d, %Y') %><br/>
-  <strong>Maximum Gift Price:</strong> $<%= @group.max_price %>
-</p>
+  <h4 class="section-title">Group Information</h4>
+  <p class="group_info">
+    <strong>Group Admin:</strong> <%= @group.admin.first_name %><br/>
+    <strong>Group Description:</strong> <%= @group.description %><br/>
+    <strong>GiftSwap Date:</strong> <%= @group.exchange_date.strftime('%A, %B %d, %Y') %><br/>
+    <strong>Maximum Gift Price:</strong> $<%= @group.max_price %>
+  </p>
 
-<h4 class="section-title">Group Members (Matches)</h4>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Gift Giver</th>
-      <th>Gift Receiver</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @group.memberships.each do |membership| %>
+  <h4 class="section-title">Group Members (Matches)</h4>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= membership.user.full_name %></td>
-        <% if membership.user == current_user || @admin_flag %>
-          <td><%= !!membership.receiver_name ? membership.receiver_name : 'Matches have not yet been drawn'%></td>
-          <% else %>
-          <td><%= @group.open ? "Matches have not yet been drawn" : "Hidden" %></td>
-        </tr>
-        <% end %>
-    <% end %>
-  </tbody>
-</table>
+        <th>Gift Giver</th>
+        <th>Gift Receiver</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @group.memberships.each do |membership| %>
+        <tr>
+          <td><%= membership.user.full_name %></td>
+          <% if membership.user == current_user || @admin_flag %>
+            <td><%= !!membership.receiver_name ? membership.receiver_name : 'Matches have not yet been drawn'%></td>
+            <% else %>
+            <td><%= @group.open ? "Matches have not yet been drawn" : "Hidden" %></td>
+          </tr>
+          <% end %>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= render 'admin_controls' if @admin_flag %>
+  <%= render 'shared/admin_controls' if @admin_flag %>
+</div>

@@ -2,7 +2,7 @@ require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
-STATES & COUNTRIES
+# STATES & COUNTRIES
 
 states_db = %w(AK AL AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY)
 
@@ -14,15 +14,15 @@ countries_db.each { |country| Country.create(name: country) }
 
 # REAL_USERS
 @sagar = User.create(
-  first_name: 'Sagar', last_name: 'Patel', email: 'sagar@giftdotcom.com', password: 'testpassword',
+  first_name: 'Sagar', last_name: 'Patel', email: 'sagar@giftswap.com', password: 'testpassword',
   password_confirmation: 'testpassword', birthdate: '1983-10-7', city: 'New York', state: 'NY', country: 'United States of America'
 )
 @leon = User.create(
-  first_name: 'Leon', last_name: 'Harary', email: 'leon@giftdotcom.com', password: 'testpassword',
+  first_name: 'Leon', last_name: 'Harary', email: 'leon@giftswap.com', password: 'testpassword',
   password_confirmation: 'testpassword', birthdate: '1991-4-23', city: 'New York', state: 'NY', country: 'United States of America'
 )
 @justin = User.create(
-  first_name: 'Justin', last_name: 'Curhan', email: 'justin@giftdotcom.com', password: 'testpassword',
+  first_name: 'Justin', last_name: 'Curhan', email: 'justin@giftswap.com', password: 'testpassword',
   password_confirmation: 'testpassword', birthdate: '1990-12-8', city: 'New York', state: 'NY', country: 'United States of America'
 )
 
@@ -85,11 +85,11 @@ all_groups.each do |group|
 end
 
 # INVITATIONS
-@flatiron.invitations.create(email: 'leon@giftdotcom.com')
-@flatiron.invitations.create(email: 'justin@giftdotcom.com')
+@flatiron.invitations.create(email: 'leon@giftswap.com')
+@flatiron.invitations.create(email: 'justin@giftswap.com')
 
-@slackbeef.invitations.create(email: 'sagar@giftdotcom.com')
-@slackbeef.invitations.create(email: 'justin@giftdotcom.com')
+@slackbeef.invitations.create(email: 'sagar@giftswap.com')
+@slackbeef.invitations.create(email: 'justin@giftswap.com')
 
-@ruby_beginners.invitations.create(email: 'sagar@giftdotcom.com')
-@ruby_beginners.invitations.create(email: 'leon@giftdotcom.com')
+@ruby_beginners.invitations.create(email: 'sagar@giftswap.com')
+@ruby_beginners.invitations.create(email: 'leon@giftswap.com')

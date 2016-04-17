@@ -1,42 +1,42 @@
-<div class="col-md-8 col-md-offset-2">
-  <h3>Create a new GiftSwap</h3>
+<div class="col-md-offset-2 col-md-8">
+  <h3 class="col-md-offset-2 col-md-8">Create a new GiftSwap</h3>
+
+  <% if @group.errors.any? %>
+    <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for @group, class: 'form-horizontal' do |f| %>
+    <div class="form-group col-md-8 col-md-offset-2">
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: 'Group Name', class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-8 col-md-offset-2">
+      <%= f.label :description %>
+      <%= f.text_area :description, placeholder: 'Group Description', class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-8 col-md-offset-2">
+      <%= f.label :exchange_date %>
+      <%= f.date_field :exchange_date, value: '2016-12-24', class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-8 col-md-offset-2">
+      <%= f.label :max_price %>
+      <%= f.number_field :max_price, placeholder: 'Max Gift Price', class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-8 col-md-offset-2">
+      <%= label_tag :invitations, 'Invite Friends' %>
+        <%= text_area_tag :invitations, nil, placeholder: 'Please enter comma separated email addresses: jkatz@example.com, icandy@example.com, aflombaum@example.com', class: 'form-control' %>
+    </div>
+
+    <div class="col-md-8 col-md-offset-2">
+      <%= f.submit 'Create Group', class: 'btn btn-danger' %>
+    </div>
+  <% end %>
 </div>
-
-<% if @group.errors.any? %>
-  <ul>
-    <% @group.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_for @group, class: 'form-horizontal' do |f| %>
-  <div class="form-group col-md-8 col-md-offset-2">
-    <%= f.label :name %>
-    <%= f.text_field :name, placeholder: 'Group Name', class: 'form-control' %>
-  </div>
-
-  <div class="form-group col-md-8 col-md-offset-2">
-    <%= f.label :description %>
-    <%= f.text_area :description, placeholder: 'Group Description', class: 'form-control' %>
-  </div>
-
-  <div class="form-group col-md-8 col-md-offset-2">
-    <%= f.label :exchange_date %>
-    <%= f.date_field :exchange_date, value: '2016-12-24', class: 'form-control' %>
-  </div>
-
-  <div class="form-group col-md-8 col-md-offset-2">
-    <%= f.label :max_price %>
-    <%= f.number_field :max_price, placeholder: 'Max Gift Price', class: 'form-control' %>
-  </div>
-
-  <div class="form-group col-md-8 col-md-offset-2">
-    <%= label_tag :invitations, 'Invite Friends' %>
-      <%= text_area_tag :invitations, nil, placeholder: 'Please enter comma separated email addresses: jkatz@example.com, icandy@example.com, aflombaum@example.com', class: 'form-control' %>
-  </div>
-
-  <div class="col-md-8 col-md-offset-2">
-    <%= f.submit 'Create Group', class: 'btn btn-danger' %>
-  </div>
-<% end %>

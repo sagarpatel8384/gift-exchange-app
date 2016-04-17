@@ -1,5 +1,7 @@
-<% if @results.nil? %>
-  <%= render 'shared/homepage_form' %>
-<% else %>
-  <%= render 'shared/match_results' %>
-<% end %>
+<div class="col-md-offset-2 col-md-8">
+  <% if @results.nil? %>
+    <%= render 'shared/homepage_form' %>
+  <% else %>
+    <%= render 'shared/match_results' %>
+  <% end %>
+</div>

@@ -9,8 +9,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem "chartkick"
-
-# Use ActiveModel has_secure_password
+gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bcrypt', '~> 3.1.7'
 
 group :development do
@@ -29,7 +28,6 @@ group :test, :development do
   gem 'sqlite3'
   gem 'pry-byebug'
   gem 'guard-rspec', require: false
-  # gem 'thin'
 end
 
 group :production do
@@ -37,5 +35,3 @@ group :production do
   gem 'google-analytics-rails'
   gem 'rails_12factor'
 end
-
-gem 'bootstrap-sass', '~> 3.1.1'

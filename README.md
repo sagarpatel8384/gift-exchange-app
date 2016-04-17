@@ -2,6 +2,8 @@
 
 GiftSwap is a web application built in the Ruby programming language using the Rails framework. GiftSwap is an application that allows users to create groups for gift exchange events (e.g., Secret Santa). Once a user has accepted a group invitation, the group admin has the ability to randomly generate gift exchange pairs.
 
+A live demo of GiftSwap can be found here: [GiftSwap](https://giftswap.herokuapp.com/)
+
 ## GiftSwap Pairing
 
 GiftSwap allows both registered and unregistered users to use our matching algorithm to match unique pairs for gift swaps. When first visiting the site, users are presented with a form which the user can use to match pairs.

@@ -24,17 +24,24 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     @group.update(group_params)
-    @group.save ? redirect_to(@group) : (render :edit)
+
+    if @group.save
+      redirect_to(@group)
+    else
+      (render :edit)
+    end
   end
 
   def edit
     @group = Group.find(params[:id])
+
     if @group.admin == current_user
       render :edit
     else
       flash[:notice] = "You are not allowed to edit this group"
-      redirect_to @group   
-    end 
+      redirect_to @group
+    end
+
     @admin_flag = @group.admin?(current_user)
   end
 
