@@ -31,19 +31,19 @@ countries = [
 ]
 
 # AUTOMATED USERS
-250.times do
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 'testpassword',
-    password_confirmation: 'testpassword',
-    birthdate: dates.sample,
-    city: Faker::Address.city,
-    state: states_db.sample,
-    country: countries.sample
-  )
-end
+# 250.times do
+#   User.create(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: 'testpassword',
+#     password_confirmation: 'testpassword',
+#     birthdate: dates.sample,
+#     city: Faker::Address.city,
+#     state: states_db.sample,
+#     country: countries.sample
+#   )
+# end
 
 # SITE ADMIN
 @site_admin_sagar = SiteAdmin.create.tap { |site_admin| site_admin.user = @sagar }.save
@@ -51,41 +51,41 @@ end
 @site_admin_justin = SiteAdmin.create.tap { |site_admin| site_admin.user = @justin }.save
 
 # GROUPS
-@flatiron = Group.create(name: 'Flatiron Gift Swap', description: 'Flatiron School Annual Holiday Party', exchange_date: '2016-12-2', max_price: 50, admin_id: @sagar.id)
-@slackbeef = Group.create(name: 'SlackBeef Party', description: '2016 Slackbeef Holiday Gift Exchange', exchange_date: '2016-12-2', max_price: 50, admin_id: @leon.id)
-@ruby_beginners = Group.create(name: 'Ruby Beginners Gift Swap', description: 'Ruby Beginners Holiday Gift Swap', exchange_date: '2016-12-2', max_price: 100, admin_id: @justin.id)
-
-party_name = ['Holiday Party', 'Gift Exchance', 'Gift Swap', 'Party 2016', 'Annual Fun Time', 'Secret Santa', 'Hanukkah Party']
-dates = %w(2016-12-2 2016-12-24 2016-11-10 2016-12-2 2016-12-2)
-
-50.times do
-  Group.create(
-    name: "#{Faker::Company.name} #{party_name.sample}",
-    description: Faker::Lorem.sentence(5),
-    exchange_date: (Date.today + 1 + rand(1..200)).strftime('%Y/%m/%d'),
-    max_price: rand(25..100),
-    admin_id: rand(5..250)
-  )
-end
+# @flatiron = Group.create(name: 'Flatiron Gift Swap', description: 'Flatiron School Annual Holiday Party', exchange_date: '2016-12-2', max_price: 50, admin_id: @sagar.id)
+# @slackbeef = Group.create(name: 'SlackBeef Party', description: '2016 Slackbeef Holiday Gift Exchange', exchange_date: '2016-12-2', max_price: 50, admin_id: @leon.id)
+# @ruby_beginners = Group.create(name: 'Ruby Beginners Gift Swap', description: 'Ruby Beginners Holiday Gift Swap', exchange_date: '2016-12-2', max_price: 100, admin_id: @justin.id)
+#
+# party_name = ['Holiday Party', 'Gift Exchance', 'Gift Swap', 'Party 2016', 'Annual Fun Time', 'Secret Santa', 'Hanukkah Party']
+# dates = %w(2016-12-2 2016-12-24 2016-11-10 2016-12-2 2016-12-2)
+#
+# 50.times do
+#   Group.create(
+#     name: "#{Faker::Company.name} #{party_name.sample}",
+#     description: Faker::Lorem.sentence(5),
+#     exchange_date: (Date.today + 1 + rand(1..200)).strftime('%Y/%m/%d'),
+#     max_price: rand(25..100),
+#     admin_id: rand(5..250)
+#   )
+# end
 
 # MEMBERSHIPS
-@sagar.groups << @ruby_beginners
-@leon.groups << @ruby_beginners
-@justin.groups << @ruby_beginners
-
-all_users = User.all
-all_groups = Group.all
-
-all_groups.each do |group|
-  rand(8).times { group.users << all_users.sample }
-end
+# @sagar.groups << @ruby_beginners
+# @leon.groups << @ruby_beginners
+# @justin.groups << @ruby_beginners
+#
+# all_users = User.all
+# all_groups = Group.all
+#
+# all_groups.each do |group|
+#   rand(8).times { group.users << all_users.sample }
+# end
 
 # INVITATIONS
-@flatiron.invitations.create(email: 'leon@giftswap.com')
-@flatiron.invitations.create(email: 'justin@giftswap.com')
-
-@slackbeef.invitations.create(email: 'sagar@giftswap.com')
-@slackbeef.invitations.create(email: 'justin@giftswap.com')
-
-@ruby_beginners.invitations.create(email: 'sagar@giftswap.com')
-@ruby_beginners.invitations.create(email: 'leon@giftswap.com')
+# @flatiron.invitations.create(email: 'leon@giftswap.com')
+# @flatiron.invitations.create(email: 'justin@giftswap.com')
+#
+# @slackbeef.invitations.create(email: 'sagar@giftswap.com')
+# @slackbeef.invitations.create(email: 'justin@giftswap.com')
+#
+# @ruby_beginners.invitations.create(email: 'sagar@giftswap.com')
+# @ruby_beginners.invitations.create(email: 'leon@giftswap.com')
