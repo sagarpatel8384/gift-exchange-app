@@ -1,0 +1,40 @@
+<footer class="section section-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>GiftSwap</h1>
+        <p>GiftSwap is a Secret Santa Gift Exchane generator that
+          <br>assigns unique matches to members in a gift exchange.
+          <br>GiftSwap is a project built by <a class="footer-links" href="https://www.linkedin.com/in/patelsagar">Sagar Patel</a>, <a class="footer-links" href="https://www.linkedin.com/in/justincurhan">Justin Curhan</a>
+          <br>and <a class="footer-links" href="https://www.linkedin.com/in/leonharary">Leon Harary</a> who are students of The Flatiron School.</p>
+          <p>
+            <% if logged_in? %>
+              <%= link_to 'Site Administrator', site_admin_path(current_user) %>
+            <% end %>
+          </p>
+      </div>
+      <div class="col-sm-6">
+        <p class="text-info text-right">
+          <br>
+          <br>
+        </p>
+        <div class="row">
+          <div class="col-md-12 hidden-xs text-right">
+            <a href="https://github.com/sagarpatel8384/gift-exchange-app">
+              <i class="fa fa-3x fa-fw fa-github text-inverse"></i>
+            </a>
+            <a href="https://github.com/lharary" target="_blank">
+              <img src="<%= image_url('leon.jpg') %>" class="center-block img-circle img-responsive profile-pic">
+            </a>
+            <a href="https://github.com/sagarpatel8384" target="_blank">
+              <img src="<%= image_url('sagar.jpg') %>" class="center-block img-circle img-responsive profile-pic">
+            </a>
+            <a href="https://github.com/jcurhan" target="_blank">
+              <img src="<%= image_url('justin.jpg') %>" class="center-block img-circle img-responsive profile-pic">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

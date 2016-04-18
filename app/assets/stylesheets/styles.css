@@ -1,10 +1,4 @@
 /* Some Style from the Bootstrap Default Theme */
-body {
-  padding-top: 70px;
-  padding-bottom: 30px;
-  background-color: #EAEAEA !important;
-}
-
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
@@ -89,4 +83,48 @@ hr {
 
 .section-title {
   color: #6C7A89;
+}
+
+.profile-pic {
+  width: 7%;
+  height: 7%;
+  float: right;
+  margin-right: 10px !important;
+}
+
+.cover-image {
+  background-image: url('homepage-bg.jpg');
+}
+
+.navbar-brand, .navbar-brand:hover {
+  font-size: 28px !important;
+  color: white;
+}
+
+.nav-links, .nav-links:hover {
+  font-size: 18px !important;
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.btn-size {
+  width: 125px;
+  margin: 5px;
+}
+
+.footer-text, .footer-text:hover {
+  color: white;
+}
+
+.pushdown {
+  margin-top: 75px;
+}
+
+.section-secondary {
+  color: white;
+  background-color: #2E2E2E !important;
+}
+
+.session-form {
+  margin-bottom: 150px;
 }

@@ -1,23 +1,33 @@
-<div class="col-md-offset-2 col-md-8">
-  <%= form_tag sessions_path, class: 'form-horizontal' do %>
-    <div class='form-group'>
-      <div class="col-md-12">
-        <%= label_tag :email %>
-        <%= text_field_tag :email, nil, placeholder: "Email", class: 'form-control' %>
-      </div>
-    </div>
+<div class="section session-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 pushdown">
+        <% if flash.now[:notice] %>
+          <div class="alert alert-danger" role="alert"><%= flash.now[:notice] %></div>
+        <% end %>
 
-    <div class='form-group'>
-      <div class="col-md-12">
-        <%= label_tag :password %>
-        <%= password_field_tag :password, nil, placeholder: "Password", class: 'form-control' %>
-      </div>
-    </div>
+        <%= form_tag sessions_path, class: 'form-horizontal' do %>
+          <div class='form-group'>
+            <div class="col-md-12">
+              <%= label_tag :email %>
+              <%= text_field_tag :email, nil, placeholder: "Email", class: 'form-control' %>
+            </div>
+          </div>
 
-    <div class='form-group'>
-      <div class="col-md-12">
-        <%= submit_tag "Login", class: 'btn btn-danger' %>
+          <div class='form-group'>
+            <div class="col-md-12">
+              <%= label_tag :password %>
+              <%= password_field_tag :password, nil, placeholder: "Password", class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class='form-group'>
+            <div class="col-md-12">
+              <%= submit_tag "Login", class: 'btn btn-danger' %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
