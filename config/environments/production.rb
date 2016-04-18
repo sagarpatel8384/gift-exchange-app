@@ -1,6 +1,10 @@
 require 'yaml'
 
 Rails.application.configure do
+  config.serve_static_assets = true
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+  config.assets.compile = true
+  
   GA.tracker = Rails.application.secrets.google_analytics_code
   # Settings specified here will take precedence over those in config/application.rb.
 
