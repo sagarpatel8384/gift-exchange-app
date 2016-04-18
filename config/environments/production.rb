@@ -1,7 +1,10 @@
 require 'yaml'
 
 Rails.application.configure do
+  config.cache_classes = true
+  config.serve_static_assets = true
   config.assets.compile = true
+  config.assets.digest = true
 
   GA.tracker = Rails.application.secrets.google_analytics_code
   # Settings specified here will take precedence over those in config/application.rb.
