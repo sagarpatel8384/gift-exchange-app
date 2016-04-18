@@ -1,4 +1,4 @@
-<div class="section session-form">
+<div class="section">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-8 pushdown">
@@ -7,6 +7,7 @@
         <% end %>
 
         <%= form_tag sessions_path, class: 'form-horizontal' do %>
+          <h3>Log In</h3>
           <div class='form-group'>
             <div class="col-md-12">
               <%= label_tag :email %>

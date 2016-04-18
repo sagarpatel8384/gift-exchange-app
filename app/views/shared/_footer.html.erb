@@ -3,15 +3,14 @@
     <div class="row">
       <div class="col-sm-6">
         <h1>GiftSwap</h1>
-        <p>GiftSwap is a Secret Santa Gift Exchane generator that
-          <br>assigns unique matches to members in a gift exchange.
-          <br>GiftSwap is a project built by <a class="footer-links" href="https://www.linkedin.com/in/patelsagar">Sagar Patel</a>, <a class="footer-links" href="https://www.linkedin.com/in/justincurhan">Justin Curhan</a>
-          <br>and <a class="footer-links" href="https://www.linkedin.com/in/leonharary">Leon Harary</a> who are students of The Flatiron School.</p>
-          <p>
-            <% if logged_in? %>
-              <%= link_to 'Site Administrator', site_admin_path(current_user) %>
-            <% end %>
-          </p>
+        <p>
+          GiftSwap is a Secret Santa Gift Exchane generator that assigns unique matches to members in a gift exchange. GiftSwap is a project built by <a class="footer-links" href="https://www.linkedin.com/in/patelsagar">Sagar Patel</a>, <a class="footer-links" href="https://www.linkedin.com/in/justincurhan">Justin Curhan</a> and <a class="footer-links" href="https://www.linkedin.com/in/leonharary">Leon Harary</a> who are students of The Flatiron School.
+        </p>
+        <p>
+          <% if logged_in? %>
+            <%= link_to 'Site Administrator', site_admin_path(current_user) %>
+          <% end %>
+        </p>
       </div>
       <div class="col-sm-6">
         <p class="text-info text-right">

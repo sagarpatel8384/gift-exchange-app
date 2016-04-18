@@ -125,10 +125,23 @@ hr {
   background-color: #2E2E2E !important;
 }
 
-.session-form {
-  margin-bottom: 150px;
-}
-
 .nav-link-login {
   margin-right: 50px;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 150px;
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px;
+  height: 150px;
+  clear: both;
+  padding-top:20px;
 }
