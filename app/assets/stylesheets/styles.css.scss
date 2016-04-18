@@ -93,7 +93,7 @@ hr {
 }
 
 .cover-image {
-  background-image: url('homepage-bg.jpg');
+  background-image: url(asset-path('homepage-bg.jpg'))
 }
 
 .navbar-brand, .navbar-brand:hover {
