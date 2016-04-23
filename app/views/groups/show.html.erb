@@ -2,7 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-8 pushdown">
-        <div class="alert alert-danger" role="alert"><%= flash[:notice] %></div>
+        <% if flash[:notice] %>
+          <div class="alert alert-danger" role="alert"><%= flash[:notice] %></div>
+        <% end %>
         <h3>
           <%= @group.name %>
         </h3>
