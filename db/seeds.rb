@@ -89,3 +89,16 @@ end
 
 @ruby_beginners.invitations.create(email: 'sagar@giftswap.com')
 @ruby_beginners.invitations.create(email: 'leon@giftswap.com')
+
+######################
+# SAMPLE
+######################
+@campus_draft = Group.create(name: 'Campus Draft Gift Exchange', description: 'Campus Draft Gift Exchange 2016', exchange_date: '2016-12-24', max_price: 100, admin_id: @sagar.id)
+
+@campus_draft.users << @sagar
+
+10.times do |i|
+  User.find(i + 10).groups << @campus_draft
+end
+
+@campus_draft.save

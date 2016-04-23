@@ -4,7 +4,7 @@ class Group < ActiveRecord::Base
   has_many :invitations
   belongs_to :admin, class_name: :User, foreign_key: 'admin_id'
   validates :name, :exchange_date, :max_price, :admin_id, presence: true
-  validates :name, length: { in: 3..25 }
+  validates :name, length: { in: 3..50 }
   validates :max_price, numericality: { only_integer: true, greater_than: 0 }
   validate :valid_exchange_date
 
@@ -34,7 +34,7 @@ class Group < ActiveRecord::Base
       UserMailer.match_email(self, membership.user, User.find(membership.receiver_id))
     end
   end
-  
+
   # CLASS ANALYTICS
 
   def self.num_active_groups

@@ -41,7 +41,7 @@
 
         <div>
           <div class='profile-section section-title'>My Gift Exchanges</div><hr>
-          <% if current_user.groups.any? %>
+          <% if @user.groups.any? %>
             <table class="table">
               <thead>
                 <tr>
@@ -49,7 +49,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% current_user.groups.each do |group| %>
+                <% @user.groups.each do |group| %>
                   <tr>
                     <td><%= link_to group.name, group_path(group) %></td>
                   </tr>
@@ -63,7 +63,7 @@
 
         <div>
           <div class='profile-section section-title'>My Invitations</div><hr>
-          <% if current_user.open_invitations.any? %>
+          <% if @user.open_invitations.any? %>
             <table class="table">
               <thead>
                 <tr>
@@ -71,7 +71,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% current_user.open_invitations.each do |invitation| %>
+                <% @user.open_invitations.each do |invitation| %>
                   <% if invitation.group.open %>
                     <tr>
                       <td><%= invitation.group.name %></td>
