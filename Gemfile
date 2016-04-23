@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "chartkick"
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bcrypt', '~> 3.1.7'
+gem 'faker'
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -19,7 +20,6 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'faker'
   gem 'capybara'
   gem 'binding_of_caller'
   gem 'factory_girl_rails'
