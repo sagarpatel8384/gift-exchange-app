@@ -5,11 +5,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.admin_membership(current_user)
+    @group.admin_membership(current_user) # Set creator as admin of group
 
     if @group.save
       UserMailer.new_group_email(current_user, @group).deliver_now
-      create_group_invitations
+      create_group_invitations # application controller method to send invites
       redirect_to @group
     else
       render :new
@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @admin_flag = @group.admin?(current_user)
+    @admin_flag = @group.admin?(current_user) # Checks whether current user is the admin
   end
 
   def update

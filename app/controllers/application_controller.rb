@@ -8,9 +8,13 @@ class ApplicationController < ActionController::Base
   private
 
   def create_group_invitations
+    # Splits emails entered into Text Area
     invites_array = params[:invitations].gsub(' ', '').split(',')
+    # Creates unique array of emails (to prevent sending duplicates)
     distinct_invites = invites_array.uniq.select { |email| !@group.invitations.find_by_email(email)}
+    # Delivers Email
     distinct_invites.each { |email| UserMailer.invitation_email(email, @group).deliver_now}
+    # Creates invitations association in model
     distinct_invites.each { |email| @group.invitations.create(email: email) }
   end
 
